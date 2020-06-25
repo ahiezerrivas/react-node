@@ -6,6 +6,9 @@ npm init
 npm install express
 poner app.js en el package.json
 node app.js
+npm i nodemon
+acomodar el package.json para nodemon
+npm run dev
 
 
 //////////Video 20/////////////
