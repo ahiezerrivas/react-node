@@ -5,4 +5,8 @@ app.get("/", (req, res) => {
   res.send("Hello world from Node js");
 });
 
-app.listen(8080);
+const port = 8080
+
+app.listen(port, () => {
+  console.log(`A Node Js API is listenin on port: ${port}`);
+});
