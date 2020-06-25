@@ -5,5 +5,7 @@ npm init
 
 npm install express
 poner app.js en el package.json
+node app.js
+
 
 //////////Video 20/////////////
