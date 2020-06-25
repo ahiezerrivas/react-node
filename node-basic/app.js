@@ -1,8 +1,13 @@
-const express = require("express")
-const app = express()
+// const express = require("express")
+// const app = express()
 
-app.get('/', (req, res) => {
-    res.send("hey whats up from express ")
-})
+// app.get('/', (req, res) => {
+//     res.send("hey whats up from express ")
+// })
 
-app.listen(3000);
+// app.listen(3000);
+
+const fs = require('fs')
+const fileName = "txt.txt"
+
+fs.watch(fileName, () => console.log('File Changed'))
