@@ -7,7 +7,7 @@ const expressValidator = require('express-validator');
 const dotenv = require('dotenv')
 dotenv.config()
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true})
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log(`DB Connected`))
 
 mongoose.connection.on('error', err => {
