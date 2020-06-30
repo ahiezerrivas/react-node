@@ -30,5 +30,6 @@
 
 
 ///Video29
-    npm i express-validator
+    
     probarlor en postman
+
