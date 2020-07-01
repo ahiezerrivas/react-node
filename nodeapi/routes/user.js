@@ -22,6 +22,14 @@ const userSchema = new mongoose.Schema({
      },
      updated: Date
  })
+
+//virtual field
+userSchema.virtual('password')
+.set(function(password) {
+    //create temporary variable called _password
+    this._password = password
+    // generate a timestamp
+    
  
  module.exports = mongoose.model("User", userSchema);
      
