@@ -1,4 +1,15 @@
-
+cd
 
 ////////Video 33 ///////////
-npm i uuid
+
+/////////////Video 36//////////////
+npm i jsonwebtoken
+npm i cookie-parser
+/////////////Video 40//////////////
+npm i express-jwt
+
+probar en postman y en el headers
+colocar authorization 
+value Bearer token
+la ruta 
+get /
