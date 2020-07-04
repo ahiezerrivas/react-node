@@ -1,15 +1,54 @@
-cd
 
-////////Video 33 ///////////
 
-/////////////Video 36//////////////
-npm i jsonwebtoken
-npm i cookie-parser
-/////////////Video 40//////////////
-npm i express-jwt
-
+/////////////Video 44//////////////
 probar en postman y en el headers
+para crear un nuevo post
 colocar authorization 
 value Bearer token
 la ruta 
+post /post
+con {
+    title:"",
+    description:""
+}
+/////////////Video 44//////////////
+
+/////////////Video 45//////////////
+get /users
+/////////////Video 45//////////////
+
+/////////////Video 46//////////////
+get /user/id
+
+
+/////////////Video 47//////////////
+npm i lodash
+
+put /user/id
+
+/////////////Video 50//////////////
+npm i formidable
+
+
+/////////////Video 51//////////////
+
+post /post/new/id
+
+x-www-for-urlencoded
+title   title with data
+body    body wit form data
+
+
+/////////////Video 52 y 53//////////////
 get /
+/posts/by/id
+
+
+/////////////Video 56//////////////
+delete /post/:postId
+
+
+/////////////Video 57//////////////
+put /post/:postId
+/////////////Video 60//////////////
+npm i cors

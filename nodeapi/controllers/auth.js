@@ -32,8 +32,7 @@ exports.signin = (req, res) => {
                 error: "Email and password do not match"
             })
         }
-    })
-   
+
 
     // generate a token with user id and secret
     const token = jwt.sign({_id: user._id}, process.env.JWT_SECRET);
@@ -43,7 +42,13 @@ exports.signin = (req, res) => {
     //return response with user and token to frontend client
     const {_id, name, email} = user
     return res.json({token, user: {_id, email, name } })
-}
+
+
+
+	})
+    }
+   
+
 
 
 exports.signout = (req, res) => {
@@ -52,5 +57,7 @@ exports.signout = (req, res) => {
 }
 
 exports.requireSignin = expressJwt({
-    secret: process.env.JWT_SECRET
+    secret: process.env.JWT_SECRET,
+    userProperty: "auth",
+    algorithms: ['HS256']
 })
