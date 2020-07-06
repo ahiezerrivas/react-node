@@ -1,3 +1,8 @@
-const name = "Ryan";
 
-alert(name);
+if (true) {
+  let name = "Ryan";
+  name = 'Zen';
+  alert(name);
+}
+
+
