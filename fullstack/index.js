@@ -1,5 +1,9 @@
-function welcome(user="Mystery person", message="Goodday"){
-  alert(`Hello ${user}, ${message}`);
-}
+//function greeting(message) {
+ // return alert(`${message} everyone`);
+//}
+//let greetting = (message) =>  alert(`${message} everyone`);
+//geeting('Good morning');
 
-welcome();
+let createBlog = (title, body) => {
+  if(!title) {
+    throw new Error('A title is required
