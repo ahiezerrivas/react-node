@@ -1,12 +1,11 @@
-let nepal = {
-  //add property
-  mountains: ['Everest', 'Fish Tail', 'Annapurna'],
-  //add method
-  printWithDash: function(){
-    setTimeout(() => {
-       console.log(this.mountains.join(" - "))
-    }, 3000)
-  }
-};
+let thingsToDo = {
+  morning: "Exercise",
+  afternoon: "Work",
+  evening: "Code",
+  night: ["Sleep", "Dream"]
 
-nepal.printWithDash();
+}
+
+let {morning, afternoon} = thingsToDo;
+morning = 'Run';
+console.log(morning, ' - ', afternoon);
