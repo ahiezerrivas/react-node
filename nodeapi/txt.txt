@@ -22,12 +22,12 @@ get /user/id
 
 
 /////////////Video 47//////////////
-npm i lodash
+
 
 put /user/id
 
 /////////////Video 50//////////////
-npm i formidable
+
 
 
 /////////////Video 51//////////////
@@ -51,4 +51,3 @@ delete /post/:postId
 /////////////Video 57//////////////
 put /post/:postId
 /////////////Video 60//////////////
-npm i cors
