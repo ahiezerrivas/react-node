@@ -1,13 +1,6 @@
+// rest 
+var rivers = ['Sunkoshi', 'Tamakoshi', 'Sapatakoshi'];
 
-var day = {
-    breakfast: 'toast with milk',
-    lunch: 'rice with chicken curry'
-}
+var [first, ...rest] = rivers;
 
-var night = {
-    dinner: 'noodle soup'
-};
-
-var picnic = {...day,...night};
-
-console.log(picnic)
+console.log(first);
