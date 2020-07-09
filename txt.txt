@@ -1,0 +1,49 @@
+/////////Video 73/////// 
+npm instal -g create-react-app
+
+create-react-app lareact
+
+
+npm start
+
+
+/////////Video 75/////// 
+borrar todo lo que esta app.js dentro del div
+borrar todo menos app.js
+e index.js y registers
+
+en el app.js 
+import React, { Component } from 'react';
+import axios from 'axios';
+
+data = {
+
+}
+
+class App extends Component {
+	constructor(props) {
+		super(props)
+		//state
+		this.state = {
+			users:[]
+		}
+	}	
+
+	componentWillMount() {
+		axios('api.randomuser.me/?nat=US&results=5')
+		.then(response => this.setState({
+			users: response.data.results
+		}));
+	}
+	render(){
+	return <div className="App">we will be back!</div>
+	}	
+}
+
+exportdefault App; 
+
+npm i axios
+
+react devtools
+
+
