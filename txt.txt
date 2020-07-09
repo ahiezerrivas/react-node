@@ -15,6 +15,7 @@ e index.js y registers
 en el app.js 
 import React, { Component } from 'react';
 import axios from 'axios';
+import Loading form './Loading';
 
 data = {
 
@@ -53,8 +54,10 @@ class App extends Component {
 			<p>{user.email}</p>
 			<hr />
 		</div>
-		))
-		: 'Loading'}
+		  ))
+		) : (
+		 <Loading message="hey"/>
+		)}
 	</div>
 	);
 	}	
@@ -66,6 +69,13 @@ npm i axios
 
 react devtools
 
-/////////Video 76/////// 
+/////////Video 78/////// 
+Crear el archivo Loading.js
+
+import React from 'react';
+
+const Loading = ({message}) => <h2>{message}</h2>
+
+export deafult Loading;
 
 
