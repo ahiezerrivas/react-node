@@ -1,19 +1,32 @@
-//classes 
+//super class
+class Holiday {
+    constructor(destination, days) {
+        this.destination = destination
+        this.days = days
+    }
 
-//we could create a function and add methos on the function object using the prototype
-
-//in javascript functions are objects -inherit the behavior of objecct
-//whenever you create an object, the prototype object is also created behind the scene
-
-
-function Holiday(destination, days) {
-    this.destination = destination
-    this.days = days
+    info(){
+        console.log(`${this.destination} will take ${this.days}`)
+    }
 }
 
-Holiday.prototype.info = function() {
-    console.log(this.destination + " | " +this.days + " days");
+console.log(Holiday.prototype);
+
+const trip = new Holiday('Kathmandu, Nepal',  30)
+console.log(trip.info());
+
+//sub class
+class Expedition extends Holiday {
+    constructor(destination, days, gear) {
+        super(destination, days)
+        this.gear = gear;
+
+    }
+    info() {
+        super.info();
+        console.log(`Bring your ${this.gear.join("and your")}`)
+    }
 }
 
-var nepal = new Holiday('Nepal', 30);
-console.log(nepal.info());
+const tripWithGear = new Expedition("Everest", 30, ["Sunglasses", "Flasgs", "Camera"]);
+tripWithGear.info()
