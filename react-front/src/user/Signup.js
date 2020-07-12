@@ -18,19 +18,19 @@ class Signup extends Component {
 	
 
 	render() {
-		const {name, email, passworrd } = this.state
+		const {name, email, password } = this.state
 		return (
 			<div className="container">
-				<h2 className="mt-5 mb-5>Signup</h2>
+				<h2 className="mt-5 mb-5">Signup</h2>
 
 				<form>
-					<div className="form-group">
+                    <div className="form-group">
 						<label className="text-muted">Name</label>
-						<input onChange={this.handleChange("name)} type="text" className="form-control"
+						<input onChange={this.handleChange("name")} type="text" className="form-control"
 						value={name}/>
 					</div>
 					
-					d
+					
 					<div className="form-group">
 						<label className="text-muted">Email</label>
 						<input onChange={this.handleChange("email")}    type="email" className="form-control"

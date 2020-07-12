@@ -1,114 +1,21 @@
-/////////Video 95,96, 97,99/////// 
-create-react-app react-front
-npm i eract-router-dom
-bootstrap material
-copiar el cdn en public/index.html
-borrar todo menos el index e app 
+/////////Video 95,96, 97,99///////
 
 
 app.js
-import React from "react";
-import {BrowserRouter} from 'react-router-dom'
-import MainRouter from './MainRouter'
 
-const App = () => (
-	<BrowserRouter>
-		<MainRouter />
-	</BrowserRouter>
-)
-
-export default App;
 
 en src 
 	core/Home.js
-import React from 'react'
-const Home = () => {
-	<div className="jumbotron">
-		<h2>Home</h2>
-		<p className="lead">Welcome to React Frontend</p>
-	</div>
-};
 
-export default Home;
 	
-en src MainRouter.js
+en src 
 
-import React from 'react;
-import {Route, Switch} from 'react-router-dom'
-import Home from "./core/Home";
-import Signup from "./user/Signup";
-const MainRouter = () => (
-	<div>
-		<Switch>
-			<Route exact path="/" component={Home} />
-			<Route exact path="/signup" component={Signup} />
-		</Switch>
-	</div>
-);
 
-export default MainRouter;
 
 en src
 	user/Signup.js
 
-import React, { Component } "react";
 
-class Signup extends Component {
-	constructor() {
-		super()
-		this.state = {
-			name: "",
-			email: "",
-			password: "",
-			error: ""
-		}
-	}
-
-	handleChange = (name) => event => {
-		this.setState({ [name]: event.target.value})
-	}
-	
-	
-
-	render() {
-		const {name, email, passworrd } = this.state
-		return (
-			<div className="container">
-				<h2 className="mt-5 mb-5>Signup</h2>
-
-				<form>
-					<div className="form-group">
-						<label className="text-muted">Name</label>
-						<input onChange={this.handleChange("name)} type="text" className="form-control"
-						value={name}
-						/>
-					</div>
-					
-					d
-					<div className="form-group">
-						<label className="text-muted">Email</label>
-						<input onChange={this.handleChange("email")}    type="email" className="form-control"
-						value={email}
-						/>
-					</div>
-
-
-					<div className="form-group">
-						<label className="text-muted">Password</label>
-						<input onChange={this.handleChange("password")}   type="password" className="form-control"
-						value={password}
-						/>
-					</div>
-
-
-					<button className="btn btn-raised btn-primary">Submit</button>
-				</form>
-			</div>
-		);
-	}
-}
-
-export default Signup
 
 
 
