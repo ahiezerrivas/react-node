@@ -24,30 +24,56 @@ export const signout = (next) => {
 }
 
 
+export const isAuthenticated = () => {
+    if(typeof window == "undefined") {
+        return false
+    }
+    
+    if(localStorage.getItem("jwt")) {
+        return JSON.parse(localStorage.getItem("jwt"))
+     } else {
+         return false;
+     }
+};
+    
+                                
+
+
 const Menu = ({history}) => (
     <div>
         <ul className="nav nav-tabs bg-primary">
             <li className="nav-item">
                 <Link className="nav-link" style={isActive(history, "/")} href="/">Home</Link>
             </li> 
-            <li className="nav-item">
-                <Link className="nav-link" style={isActive(history, "/signin")} href="/signin">Sign in</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" style={isActive(history, "/signup")}  href="/signup">Sign up</Link>
-            </li>
-            <li className="nav-item">
-                <a 
-                    className="nav-link" 
-                    style=
-                        {isActive(history, "/signup"),
-                         { cursor: "pointer", color: "#fff" }}
-                    }
-                    onClick={() => signout(() => history.push('/'))}
-                    >
-                        Sign Out
-                  </a>
-            </li>
+
+
+            {!isAuthenticated() && ( 
+             <>
+                 <li className="nav-item">
+                    <Link className="nav-link" style={isActive(history, "/signin")} href="/signin">Sign in</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" style={isActive(history, "/signup")}  href="/signup">Sign up</Link>
+                </li>
+            </> 
+            )}
+
+            {isAuthenticated() && (
+                <>
+                  <li className="nav-item">
+                            <a 
+                                className="nav-link" 
+                                style=
+                                    {isActive(history, "/signup"),
+                                     { cursor: "pointer", color: "#fff" }}
+                                }
+                                onClick={() => signout(() => history.push('/'))}
+                                >
+                                    Sign Out
+                              </a>
+                        </li>
+            </>
+            )}
            
         </ul>
     </div>
