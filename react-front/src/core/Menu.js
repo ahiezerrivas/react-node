@@ -1,22 +1,28 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom';
 
-const Menu = (props) => (
+const isActive = (history, path) => {
+    if(history.location.pathname === path) return {color: "#ff9900"}
+        else return {color: "#ffffff"}
+    
+}
+
+const Menu = ({history}) => (
     <div>
         <ul className="nav nav-tabs bg-primary">
             <li className="nav-item">
-                <Link className="nav-link " href="/">Home</Link>
+                <Link className="nav-link" style={isActive(history, "/")} href="/">Home</Link>
+            </li> 
+            <li className="nav-item">
+                <Link className="nav-link" style={isActive(history, "/signin")} href="/signin">Sign in</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" href="/signin">Sign in</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" href="/signup">Sign up</Link>
+                <Link className="nav-link" style={isActive(history, "/signup")}  href="/signup">Sign up</Link>
             </li>
             <li className="nav-item">
                 
             </li>
-            {JSON.stringify(props.history)}
+           
         </ul>
     </div>
 )
