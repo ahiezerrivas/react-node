@@ -1,5 +1,6 @@
 import React, { Component } from  "react";
 import { Redirect } from 'react-router-dom';
+import { signin, authenticate } from "../auth";
 
 class Signin extends Component {
 
@@ -8,9 +9,9 @@ class Signin extends Component {
 		this.state = {
 			email: "",
 			password: "",
-            error: "",
-            redirectToReferer: false,
-            loading: false
+		    error: "",
+		    redirectToReferer: false,
+		    loading: false
 		
 		}
 	}
@@ -32,7 +33,7 @@ class Signin extends Component {
 			 password
 		};
 		// console.log(user)
-		this.signin(user)
+		signin(user)
 		.then(data => {
 
 			if(data.error) {
