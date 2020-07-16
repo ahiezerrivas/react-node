@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 
 class Profile extends Component {
+  constructor(){
+      super()
+      this.state = {
+        user: "",
+        redirecToSignin: false
+      }
+  }
+   
+  componentDidMount() {
+    console.log("user id form router params: ", this.props.match.params.userId)
+  }
+  
+  
   render() {
     return (
       <div className="container">
