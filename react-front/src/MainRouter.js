@@ -4,7 +4,7 @@ import Home from "./core/Home";
 import Menu from "./core/Menu";
 import Signup from "./user/Signup";
 import Signin from "./user/Signin";
-
+import Profile from "./user/Profile";
 
 const MainRouter = () => (
 	<div>
