@@ -8,33 +8,7 @@ const isActive = (history, path) => {
 }
 
 
-export const signout = (next) => {
-    if(typeof window !== "undefined") localStorage.removeItem("jwt")
-    next()
-    return fetch("http://locahost:8080/signout", {
-        method: "GET"
-        
-    })
-    .then(response) => {
-        console.log('signout', response)
-        return response.json()
-    }
-    .catch(err => console.log(err))
 
-}
-
-
-export const isAuthenticated = () => {
-    if(typeof window == "undefined") {
-        return false
-    }
-    
-    if(localStorage.getItem("jwt")) {
-        return JSON.parse(localStorage.getItem("jwt"))
-     } else {
-         return false;
-     }
-};
     
                                 
 
