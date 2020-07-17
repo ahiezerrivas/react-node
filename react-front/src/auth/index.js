@@ -1,5 +1,5 @@
 export const signup = user => {
-		return fetch("http://locahols:8080/signup", {
+		return fetch(`${process.env.REACT_APP_API_url}/signup`, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
@@ -15,7 +15,7 @@ export const signup = user => {
 
 
 export const signin = user => {
-		return fetch("http://locahols:8080/signin", {
+		return fetch(`${process.env.REACT_APP_API_url}/signin`, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
@@ -41,7 +41,7 @@ export const    authenticate = (jwt, next) => {
 export const signout = next => {
     if(typeof window !== "undefined") localStorage.removeItem("jwt")
     next()
-    return fetch("http://locahost:8080/signout", {
+    return fetch(`${process.env.REACT_APP_API_url}/signout`, {
         method: "GET"
         
     })
