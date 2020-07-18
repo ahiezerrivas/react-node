@@ -14,7 +14,21 @@ const Menu = ({history}) => (
         <ul className="nav nav-tabs bg-primary">
             <li className="nav-item">
                 <Link className="nav-link" 
-                style={isActive(history, "/")} href="/">Home</Link>
+                style={isActive(history, "/")} 
+                to="/"
+                >
+                    Home
+                </Link>
+            </li> 
+
+
+            <li className="nav-item">
+                <Link className="nav-link" 
+                style={isActive(history, "/users")} 
+                to="/users"
+                >
+                    Users
+                </Link>
             </li> 
 
 
@@ -34,9 +48,10 @@ const Menu = ({history}) => (
                   <li className="nav-item">
                             <a 
                                 className="nav-link" 
-                                style=
-                                    {isActive(history, "/signup"),
-                                    { cursor: "pointer", color: "#fff" }}
+                                style={
+                                    (isActive(history, "/signup"),
+                                    { cursor: "pointer", color: "#fff" })
+                                }
                                 
                                 onClick={() => signout(() => history.push('/'))}
                                 >
