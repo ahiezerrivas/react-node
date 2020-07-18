@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom';
-import { signout, isAutheticated } from "../auth";
+import { signout, isAuthenticated } from "../auth";
 
 const isActive = (history, path) => {
     if(history.location.pathname === path) return {color: "#ff9900"}
@@ -13,7 +13,8 @@ const Menu = ({history}) => (
     <div>
         <ul className="nav nav-tabs bg-primary">
             <li className="nav-item">
-                <Link className="nav-link" style={isActive(history, "/")} href="/">Home</Link>
+                <Link className="nav-link" 
+                style={isActive(history, "/")} href="/">Home</Link>
             </li> 
 
 
@@ -35,8 +36,8 @@ const Menu = ({history}) => (
                                 className="nav-link" 
                                 style=
                                     {isActive(history, "/signup"),
-                                     { cursor: "pointer", color: "#fff" }}
-                                }
+                                    { cursor: "pointer", color: "#fff" }}
+                                
                                 onClick={() => signout(() => history.push('/'))}
                                 >
                                     Sign Out
@@ -47,12 +48,17 @@ const Menu = ({history}) => (
                         <li className="nav-item">
                            
                             <Link 
-                                to={`/user/${isAuthenticated().user._id`} 
-                                style={{ color: "#fff" }}
+                                to={`/user/${isAuthenticated().user._id}`} 
+                                style={isActive(
+                                        history, 
+                                        `/user/${isAuthenticated().user._id}`
+                                        )} 
+                                                    
                                 className="nav-link"
-                                >
+                            >
+
                                 {`${isAuthenticated().user.name}'s profile`}
-                               </Link>
+                            </Link>
                       
                         </li>
             </>
