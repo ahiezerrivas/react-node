@@ -35,10 +35,10 @@ const Menu = ({history}) => (
             {!isAuthenticated() && ( 
              <>
                  <li className="nav-item">
-                    <Link className="nav-link" style={isActive(history, "/signin")} href="/signin">Sign in</Link>
+                    <Link className="nav-link" style={isActive(history, "/signin")} to="/signin">Sign in</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" style={isActive(history, "/signup")}  href="/signup">Sign up</Link>
+                    <Link className="nav-link" style={isActive(history, "/signup")}  to="/signup">Sign up</Link>
                 </li>
             </> 
             )}
