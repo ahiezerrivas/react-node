@@ -4,23 +4,23 @@ import DefaultProfile from '../images/avatar.png';
 import { Link } from 'react-router-dom';
 
 class Users extends Component {
-    contructor() {
+    constructor() {
         super()
         this.state = {
             users: []
         }
     }
 
-    componentDidMount() {
-         list().then(data => {
-            if(data.error) {
-                console.log(data.error)
-
-            } else{
-                this.setState({users: data})
+  componentDidMount() {
+        list().then(data => {
+            if (data.error) {
+                console.log(data.error);
+            } else {
+                this.setState({ users: data });
             }
-         })
+        });
     }
+
 
     renderUsers = users => (
         <div className="row">       
@@ -28,8 +28,8 @@ class Users extends Component {
                 <div className="card col-md-4" key={i}>
                     <img 
                         className="card-img-top" 
-                        src="{DefaultProfile}" 
-                        alt="{user.name}"
+                        src={DefaultProfile}
+                        alt={user.name}
                         style={{
                             width: '100%',
                             height: '15vw',

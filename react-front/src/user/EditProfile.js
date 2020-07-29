@@ -18,7 +18,7 @@ class EditProfile extends Component {
     }
 
     init = userId => {
-        const token = isAuthenticated().token
+        const token = isAuthenticated().token;
           read(userId, token).then(data => {
             if (data.error) {
               this.setState({ redirectToProfile: true })
@@ -35,21 +35,21 @@ class EditProfile extends Component {
       }
        
       componentDidMount() {
-        const userId = this.props.match.params.userId
-        this.init(userId)
+        const userId = this.props.match.params.userId;
+        this.init(userId);
         
       }
 
 
 	  isValid = () => {
 		  const { name, email, password } = this.state;
-		  if (name.length == 0) {
+		  if (name.length === 0) {
 			  this.setState({ error: "Name is required"});
 			  return false;
 		  }
-		  //email@domai.com
+		  //email@domain.com
 		  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-			  this.setState({ error: "Name is required"});
+			  this.setState({ error: "A valid Email is required"});
 			  return false;
 		  }
 		  if (password.length >= 1 && password.length <= 5) {
@@ -76,7 +76,7 @@ class EditProfile extends Component {
 			// console.log(user)
 
 			const userId = this.props.match.params.userId;
-			const token = isAutheticated().token;
+			const token = isAuthenticated().token;
 
 			update(userId, token, user).then(data => {
 				if(data.error) this.setState({error: data.error})
