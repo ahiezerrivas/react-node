@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { isAuthenticated } from '../auth';
 import { read, update } from "./apiUser"
 import {Redirect} from 'react-router-dom';
+import DefaultProfile from '../images/avatar.png';
 
 class EditProfile extends Component {
 
@@ -14,7 +15,8 @@ class EditProfile extends Component {
 			password:"",
 			redirectToProfile:false,
 			error: "",
-			fileSize: 0
+			fileSize: 0,
+			loading: false
 		
         }
     }
@@ -141,8 +143,14 @@ class EditProfile extends Component {
 		} = this.state
 		
 		if(redirectToProfile){
-			return <Redirect to={`/user/${id}`}/>
+			return <Redirect to={`/user/${id}`}
+			
+			/>
 		}
+
+		const photoUrl = id
+			? `${process.env.REACT_APP_API_URL}/user/photo/${id}`
+			: DefaultProfile;
 
         return (
             <div className="container">
@@ -165,6 +173,8 @@ class EditProfile extends Component {
 				)}
 
 				);
+
+				<img src={photoUrl} alt={name}/>
                 {this.signupForm(name, email, password)}
             </div>
 
