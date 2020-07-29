@@ -13,7 +13,9 @@ class EditProfile extends Component {
             email: "",
 			password:"",
 			redirectToProfile:false,
-			error: ""
+			error: "",
+			fileSize: 0,
+			loading: false
         }
     }
 
@@ -67,16 +69,8 @@ class EditProfile extends Component {
 	
 	clickSubmit = event => {
 		event.preventDefault()
-		
+		this.setState({ loading: true })
 		if(this.isValid()) {
-			const {name, email, password} = this.state
-			const user = {
-				name,
-				email,
-				password: password || undefined
-			};
-			// console.log(user)
-
 			const userId = this.props.match.params.userId;
 			const token = isAuthenticated().token;
 
@@ -135,7 +129,8 @@ class EditProfile extends Component {
 			email,
 			password,
 			redirectToProfile,
-			error
+			error,
+			loading
 		} = this.state
 		
 		if(redirectToProfile){
@@ -151,8 +146,22 @@ class EditProfile extends Component {
 				>
 					{error}
 				</div>
+
+				{loading ? (
+					<div className="jumbotron text-center">
+							<h2>Loading...</h2>
+					</div>
+					): (
+
+						""
+		
+				)}
+
+				);
                 {this.signupForm(name, email, password)}
             </div>
+
+			
         );
     }
 }
