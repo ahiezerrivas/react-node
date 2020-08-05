@@ -34,7 +34,7 @@ class EditProfile extends Component {
 				  name: data.name,
 				  email: data.email,
 				  error: '' ,
-				  about: ""		      		
+				  about: data.about		      		
 	      })
             }
           })  
