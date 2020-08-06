@@ -4,7 +4,11 @@ const formidable = require('formidable');
 const fs = require("fs");
 
 exports.userById = (req, res, next, id) => {
-    User.findById(id).exec((err, user) => {
+    User.findById(id)
+	//populate follwers and following users array
+	.populate('following', '_id name')
+	.populate('followers', '_id name')
+	.exec((err, user) => {
         if(err || !user) {
             return res.status(400).json({
                 error:"User not found"
@@ -16,6 +20,26 @@ exports.userById = (req, res, next, id) => {
         next();
     })
 }
+
+exports.hasAuthorization = (req, res, next) => {
+   // let sameUser = req.profile && req.auth && req.profile._id == req.auth._id;
+   // let adminUser = req.profile && req.auth && req.auth.role === 'admin';
+
+    //const authorized = sameUser || adminUser;
+	
+	const authorized = req.profile && req.auth && req.profile._id == req.auth._id;
+
+    // console.log("req.profile ", req.profile, " req.auth ", req.auth);
+    // console.log("SAMEUSER", sameUser, "ADMINUSER", adminUser);
+
+    if (!authorized) {
+        return res.status(403).json({
+            error: 'User is not authorized to perform this action'
+        });
+    }
+    next();
+};
+
 
 exports.allUsers = (req, res) => {
     User.find((err, users) => {
