@@ -10,11 +10,36 @@ class Profile extends Component {
   constructor(){
       super()
       this.state = {
-        user: "",
-        redirecToSignin: false
+        user: {following:[], followers: []},
+        redirecToSignin: false,
+        following: false
       }
   }
 
+
+    // check follow
+    checkFollow = user => {
+      const jwt = isAuthenticated();
+      const match = user.followers.find(follower => {
+        // one id has many other ids (followers) and vice versa
+        return follower._id === jwt.user._id;
+      });
+      return match;
+    };
+  
+    clickFollowButton = callApi => {
+      const userId = isAuthenticated().user._id;
+      const token = isAuthenticated().token;
+  
+      callApi(userId, token, this.state.user._id).then(data => {
+        if (data.error) {
+          this.setState({ error: data.error });
+        } else {
+          this.setState({ user: data, following: !this.state.following });
+        }
+      });
+    };
+  
   
 
   init = userId => {
@@ -24,10 +49,11 @@ class Profile extends Component {
           this.setState({ redirecToSignin: true })
         }
         else {
-          this.setState({ user: data })
+          let following = this.checkFollow(data)
+          this.setState({ user: data, following })
         }
       })  
-
+s
   }
    
   componentDidMount() {
@@ -93,7 +119,7 @@ class Profile extends Component {
 				<DeleteUser userId={user._id} />
             </div>
           ) : (
-            <FollowProfileButton />
+            <FollowProfileButton following={this.state.following} />
           )}
           </div>
         </div>
