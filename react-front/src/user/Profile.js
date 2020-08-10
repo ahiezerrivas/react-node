@@ -12,7 +12,8 @@ class Profile extends Component {
       this.state = {
         user: {following:[], followers: []},
         redirecToSignin: false,
-        following: false
+        following: false,
+	error: ''
       }
   }
 
@@ -119,7 +120,10 @@ s
 				<DeleteUser userId={user._id} />
             </div>
           ) : (
-            <FollowProfileButton following={this.state.following} />
+            <FollowProfileButton 
+		following={this.state.following} 
+		onButtonClick={this.clcikFollowButton}
+		/>
           )}
           </div>
         </div>
