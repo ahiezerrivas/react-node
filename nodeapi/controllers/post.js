@@ -116,3 +116,7 @@ exports.getPosts = (req, res) => {
     res.set("Content-Type", req.post.photo.contentType)
     return res.send(req.post.photo.data)
 }
+  
+ exports.siglePost = (req, res) => {
+    return res.json(req.post)
+}
