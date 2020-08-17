@@ -25,7 +25,7 @@ const MainRouter = () => (
 			/>
 			<PrivateRoute  exact path="/user/edit/:userId" component={FindPeople} />  		
 			<PrivateRoute exact path="/user/:userId" component={Profile} />
-			<PrivateRoute exact path="/create/post" component={NewPost} />
+			<PrivateRoute exact path="/post/create" component={NewPost} />
 		</Switch>
 	</div>
 );
