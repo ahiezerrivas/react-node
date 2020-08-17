@@ -23,6 +23,7 @@ router.post(
      );
 
 router.get("/posts/by/:userId", requireSignin,postByUser )
+router.get("/post/:postId", singlePost);
 router.put('/post/:postId', requireSignin, isPoster, updatePost)
 router.delete('/post/:postId', requireSignin, isPoster, deletePost)
 //Photo
