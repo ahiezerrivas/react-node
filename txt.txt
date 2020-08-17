@@ -1,22 +1,4 @@
-/////////Video 95,96, 97,99///////
-
-
-app.js
-
-
-en src 
-	core/Home.js
-
-	
-en src 
-
-
-
-en src
-	user/Signup.js
-
-
-
+txt 169
 
 
 
