@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { singlePost } from './apiPost';
 import DefaultPost from "../images/mountains.jpg";
 import { Link } from "react-router-dom";
+import { isAuthenticated } from "../auth";
 
 class SinglePost extends Component {
     state = {
@@ -56,12 +57,28 @@ class SinglePost extends Component {
                         </Link>
                         on {new Date(post.created).toDateString()}
                     </p>
-                    <Link
+                   <div className="d-inline-block">
+                   <Link
                         to={`/`}
                         className="btn btn-raised btn-primary btn-sm"
                     >
                         Back to posts
                     </Link>
+
+                    {isAuthenticated().user&&
+                        isAuthenticated().user._id === post.postedBy._id && (
+                            <>
+                                <button className="btn btn-raised btn-warning mr-5">
+                                    Update Post
+                                </button>
+                                <button className="btn btn-raised btn-danger mr-5">
+                                    Delete Post
+                                </button>
+                            </>
+                        )}
+
+                   
+                   </div>
                 </div>
            
         );

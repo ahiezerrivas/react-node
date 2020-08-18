@@ -102,7 +102,7 @@ class Profile extends Component {
         <h2 className="mt-5 mb-5">Profile</h2>
         <div className="row">
        
-          <div className="col-md-6">
+          <div className="col-md-4">
             
 
           <img 
@@ -115,7 +115,7 @@ class Profile extends Component {
                   
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-8">
 
             <div className="lead mt-2">
               <p>Hello {user.name}</p> 
@@ -140,7 +140,7 @@ class Profile extends Component {
 				  >
 					Edit Profile
 				  </Link>
-          
+
 				<DeleteUser userId={user._id} />
             </div>
           ) : (
