@@ -10,18 +10,10 @@ export const create = (userId, token, post) => {
         .then(response => {
             return response.json();
         })
+        .catch(err => console.log(err));
+};
      
-// export const list = () => {
-//     return fetch(`${process.env.REACT_APP_API_URL}/posts`, {
-//         method: "GET"
-//     })
-//         .then(response => {
-//             return response.json();
-//         })
-//         .catch(err => console.log(err));
-// };
 
-    
 export const list = page => {
     return fetch(`${process.env.REACT_APP_API_URL}/posts/?page=${page}`, {
         method: "GET"
@@ -33,7 +25,7 @@ export const list = page => {
 };
 
     
-  export const singlePost = postId => {
+export const singlePost = postId => {
     return fetch(`${process.env.REACT_APP_API_URL}/posts/${postid}`, {
         method: "GET"
     })
@@ -42,3 +34,17 @@ export const list = page => {
         })
         .catch(err => console.log(err));
 };
+
+export const listByUser = (userId, token) => {
+    return fetch (`${process.env.REACT_APP_API_URL}/posts/by/${userid}`, {
+        method: "GET",
+        headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`
+        }
+    })
+    .then(response => {
+        return response.json();
+    })
+    .catch(err => console.log(err));
+}
