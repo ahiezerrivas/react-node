@@ -21,7 +21,7 @@ exports.postById = (req, res, next, id) => {
 exports.getPosts = (req, res) => {
     const posts = Post.find()
         .populate("postedBy", "_id name")
-        .select("_id title body created")
+        .select("_id title body created likes")
         .sort({ created: -1 })
         .then(posts => {
             res.json(posts);
@@ -63,6 +63,7 @@ exports.getPosts = (req, res) => {
   exports.postByUser = (req, res) => {
       Post.find({postedBy: req.profile._id})
           .populate("postedBy", "_id name")
+          .select("_id title body created likes")
           .sort("_created")
           .exec((err, posts) => {
               if(err) {
