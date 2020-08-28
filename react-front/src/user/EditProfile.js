@@ -192,7 +192,7 @@ class EditProfile extends Component {
 		
 				)}
 
-				);
+				
 
 				<img 
 					style={{ height: "200px", width: "auto"}}
