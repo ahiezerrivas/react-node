@@ -82,3 +82,40 @@ export const remove = (postId, token) => {
  
    }
  
+
+   export const like = (userId, token, post) => {
+    
+    return  fetch(`${process.env.REACT_APP_API_URL}/post/like`, {
+       method: "PUT",
+       headers: {
+         Accept: "application/json",
+         "Content-Type":"application/json",
+         Authorization: `Bearer ${token}`
+       },
+       body: JSON.stringify({userId, postId})
+     })
+     .then(response => {
+       return response.json()
+     })
+     .catch(err => console.log(err))
+ 
+   }
+ 
+   export const unlike = (userId, token, post) => {
+    
+    return  fetch(`${process.env.REACT_APP_API_URL}/post/unlike`, {
+       method: "PUT",
+       headers: {
+         Accept: "application/json",
+         "Content-Type":"application/json",
+         Authorization: `Bearer ${token}`
+       },
+       body: JSON.stringify({userId, postId})
+     })
+     .then(response => {
+       return response.json()
+     })
+     .catch(err => console.log(err))
+ 
+   }
+ 
