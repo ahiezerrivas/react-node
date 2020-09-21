@@ -2,6 +2,11 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const expressJwt = require('express-jwt');
 const User = require("../models/user");
+const _ = require('lodash');
+const { sendEmail } = require("../helpers");
+// load env
+const dotenv = require("dotenv");
+dotenv.config();
 
 
 exports.signup = async (req, res) => {
